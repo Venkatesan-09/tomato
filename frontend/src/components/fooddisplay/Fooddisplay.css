@@ -1,0 +1,321 @@
+.fooddisplay {
+    margin-top: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fooddisplay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.fooddisplay h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.fooddisplay-category-badge {
+    background: linear-gradient(135deg, tomato, #ff7b54);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(255, 99, 71, 0.3);
+}
+
+.fooddisplay-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 40px;
+}
+
+.fooddisplay-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.fooddisplay-empty p {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.fooddisplay-empty p:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.fooddisplay-count {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #666;
+    border-left: 4px solid tomato;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fooddisplay-list {
+    animation: fadeInUp 0.6s ease;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .fooddisplay {
+        margin-top: 25px;
+        padding: 0 15px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+        row-gap: 35px;
+        margin-top: 25px;
+    }
+    
+    .fooddisplay h2 {
+        font-size: max(2.2vw, 22px);
+    }
+    
+    .fooddisplay-empty {
+        padding: 50px 20px;
+    }
+    
+    .fooddisplay-empty p {
+        font-size: 16px;
+    }
+    
+    .fooddisplay-empty p:first-child {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .fooddisplay {
+        margin-top: 20px;
+        padding: 0 12px;
+    }
+    
+    .fooddisplay-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .fooddisplay h2 {
+        font-size: 22px;
+    }
+    
+    .fooddisplay-category-badge {
+        font-size: 13px;
+        padding: 6px 14px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+        row-gap: 30px;
+        margin-top: 20px;
+    }
+    
+    .fooddisplay-empty {
+        padding: 40px 15px;
+        margin-top: 25px;
+    }
+    
+    .fooddisplay-empty p {
+        font-size: 15px;
+    }
+    
+    .fooddisplay-empty p:first-child {
+        font-size: 17px;
+    }
+    
+    .fooddisplay-count {
+        margin-top: 30px;
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .fooddisplay {
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+    
+    .fooddisplay-header {
+        margin-bottom: 12px;
+    }
+    
+    .fooddisplay h2 {
+        font-size: 20px;
+    }
+    
+    .fooddisplay-category-badge {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+        row-gap: 25px;
+        margin-top: 15px;
+    }
+    
+    .fooddisplay-empty {
+        padding: 30px 12px;
+        margin-top: 20px;
+    }
+    
+    .fooddisplay-empty p {
+        font-size: 14px;
+    }
+    
+    .fooddisplay-empty p:first-child {
+        font-size: 16px;
+    }
+    
+    .fooddisplay-count {
+        margin-top: 25px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Extra Small Mobile Styles */
+@media (max-width: 360px) {
+    .fooddisplay {
+        padding: 0 8px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        row-gap: 20px;
+    }
+    
+    .fooddisplay h2 {
+        font-size: 18px;
+    }
+    
+    .fooddisplay-category-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+    
+    .fooddisplay-empty {
+        padding: 25px 10px;
+    }
+    
+    .fooddisplay-empty p {
+        font-size: 13px;
+    }
+    
+    .fooddisplay-empty p:first-child {
+        font-size: 15px;
+    }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-height: 500px) and (max-width: 768px) {
+    .fooddisplay {
+        margin-top: 15px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        row-gap: 20px;
+    }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1440px) {
+    .fooddisplay {
+        max-width: 1400px;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 35px;
+        row-gap: 45px;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .fooddisplay-category-badge {
+        border: 2px solid white;
+    }
+    
+    .fooddisplay-empty {
+        border: 1px solid #000;
+    }
+    
+    .fooddisplay-count {
+        border: 1px solid #000;
+        border-left: 4px solid #000;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .fooddisplay-list {
+        animation: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .fooddisplay {
+        margin-top: 20px;
+        padding: 0;
+    }
+    
+    .fooddisplay-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .fooddisplay-category-badge {
+        background: #333 !important;
+        color: white !important;
+        box-shadow: none !important;
+    }
+}

@@ -1,0 +1,354 @@
+.order.add {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Loading and Empty States */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 15px;
+}
+
+.loading-spinner .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid tomato;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.no-orders {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Desktop Order Item */
+.order-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 20px;
+    border: 1px solid tomato;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #505050;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.order-item-food {
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.order-item-name {
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.order-item-address {
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.order-item-address p {
+    margin: 2px 0;
+}
+
+.order-item-phone {
+    color: #666;
+    font-weight: 500;
+}
+
+.order-items-count,
+.order-amount {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Status Styles */
+.order-item select {
+    background-color: #ffe8e4;
+    border: 1px solid tomato;
+    width: max(10vw, 120px);
+    padding: 8px 12px;
+    outline: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.status-Food-Processing {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+}
+
+.status-Out-for-delivery {
+    background-color: #cce7ff;
+    border-color: #007bff;
+}
+
+.status-Delivered {
+    background-color: #d4edda;
+    border-color: #28a745;
+}
+
+/* Hide mobile elements on desktop */
+.order-item-header-mobile,
+.order-status-mobile,
+.status-select-mobile {
+    display: none;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .order.add {
+        padding: 15px;
+    }
+    
+    .order-item {
+        grid-template-columns: 0.5fr 2fr 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .order-items-count,
+    .order-amount {
+        display: none;
+    }
+    
+    .order-item select {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .order.add {
+        padding: 10px;
+    }
+    
+    .order h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .order-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    /* Hide desktop elements */
+    .desktop-icon,
+    .order-item select:not(.status-select-mobile) {
+        display: none;
+    }
+    
+    /* Show mobile elements */
+    .order-item-header-mobile,
+    .order-status-mobile {
+        display: flex;
+    }
+    
+    .order-item-header-mobile {
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .order-item-header-mobile img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .mobile-order-info {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .order-item-name-mobile {
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+    }
+    
+    .order-amount-mobile {
+        font-weight: 700;
+        color: tomato;
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .order-details {
+        width: 100%;
+    }
+    
+    .order-item-food {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .order-item-name {
+        display: none; /* Use mobile version instead */
+    }
+    
+    .order-item-address {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .order-item-phone {
+        font-size: 12px;
+    }
+    
+    .order-status-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 8px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+    
+    .status-badge {
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .status-Food-Processing {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+    
+    .status-Out-for-delivery {
+        background-color: #cce7ff;
+        color: #004085;
+    }
+    
+    .status-Delivered {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    
+    .status-select-mobile {
+        background-color: #ffe8e4;
+        border: 1px solid tomato;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        min-width: 120px;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .order.add {
+        padding: 8px;
+    }
+    
+    .order h3 {
+        font-size: 18px;
+    }
+    
+    .order-item {
+        padding: 12px;
+        margin: 12px 0;
+    }
+    
+    .order-item-header-mobile {
+        gap: 8px;
+    }
+    
+    .order-item-header-mobile img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .order-item-name-mobile {
+        font-size: 14px;
+    }
+    
+    .order-amount-mobile {
+        font-size: 14px;
+    }
+    
+    .order-item-food {
+        font-size: 12px;
+    }
+    
+    .order-item-address,
+    .order-item-phone {
+        font-size: 11px;
+    }
+    
+    .status-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    
+    .status-select-mobile {
+        font-size: 11px;
+        padding: 5px 8px;
+        min-width: 110px;
+    }
+}
+
+/* Very Small Mobile Styles */
+@media (max-width: 320px) {
+    .mobile-order-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .order-status-mobile {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    
+    .status-select-mobile {
+        width: 100%;
+    }
+}
