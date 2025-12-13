@@ -111,7 +111,7 @@
 .nav-profile-dropdown {
     position: absolute;
     right: 0;
-    top: 50px;
+    top: 40px;
     background-color: white;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
