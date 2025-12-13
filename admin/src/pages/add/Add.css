@@ -1,35 +1,230 @@
-.add{
-    width: 70%;
-    margin-left: max(5vw,25px);
-    margin-top: 50px;
-    color: #6d6d6d;
-    font-size: 16px;
-}
-.add form{
-    gap: 20px;
-}
-.add-img-upload{
-    width: 120px;
-}
-.add-product-name , .add-product-description{
-    width: max(40%,280px);
-}
-.add-product-name input, .add-product-description textarea{
-    padding: 10px;
-}
-.add-category-price{
+/* Add.css */
+.add {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: calc(100vh - 80px);
+    padding: 40px;
+    margin-left: 250px;
+    margin-top: 80px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add form {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.add-image-upload {
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+.add-image-upload:hover {
+    border-color: #00b894;
+    background: rgba(0, 184, 148, 0.05);
+}
+
+.add-image-upload p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.add-image-upload label {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.add-image-upload label:hover {
+    transform: scale(1.05);
+}
+
+.add-image-upload img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    transition: all 0.3s;
+}
+
+.add-image-upload img:hover {
+    border-color: #00b894;
+    box-shadow: 0 5px 20px rgba(0, 184, 148, 0.2);
+}
+
+.add-product-name p,
+.add-product-description p,
+.add-category p,
+.add-price p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.add-product-name input,
+.add-product-description textarea,
+.add-category select,
+.add-price input {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: white;
+}
+
+.add-product-name input:focus,
+.add-product-description textarea:focus,
+.add-category select:focus,
+.add-price input:focus {
+    outline: none;
+    border-color: #00b894;
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+.add-product-description textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.add-category-price {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
-.add-category-price select , .add-category-price input{
-    max-width: 120px;
-    padding: 10px;
-}
-.add-btn{
-    max-width: 120px;
-    border: none;
-    background-color: black;
-    padding: 10px;
-    color: white;
+
+.add-category select {
     cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 45px;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #00a085 0%, #008b74 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.3);
+}
+
+.add-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .add {
+        margin-left: 220px;
+    }
+    
+    .add form {
+        padding: 30px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .add {
+        margin-left: 70px;
+        padding: 20px;
+        margin-top: 70px;
+    }
+    
+    .add form {
+        padding: 25px;
+    }
+    
+    .add-category-price {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .add-image-upload img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .add {
+        margin-left: 60px;
+        padding: 15px;
+        margin-top: 60px;
+    }
+    
+    .add form {
+        padding: 20px;
+    }
+    
+    .flex-col {
+        margin-bottom: 20px;
+    }
+    
+    .add-product-name input,
+    .add-product-description textarea,
+    .add-category select,
+    .add-price input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .add-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .add-image-upload img {
+        width: 100px;
+        height: 100px;
+    }
 }

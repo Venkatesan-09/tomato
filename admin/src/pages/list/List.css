@@ -1,27 +1,233 @@
-.list-table-format{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
-    border: 1px solid #cacaca;
-    font-size: 13px;
+/* List.css */
+.list {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: calc(100vh - 80px);
+    padding: 40px;
+    margin-left: 250px;
+    margin-top: 80px;
 }
-.list-table-format .title{
-    background-color: #f9f9f9;
+
+.list p {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
 }
-.list-table-format img{
-    width: 50px;
+
+.list p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #00b894, #4ecca3);
+    border-radius: 2px;
 }
-.cursor{
-    cursor: pointer;
+
+.list-table {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-out;
 }
-@media (max-width:600px){
-    .list-table-format{
-        grid-template-columns: 1fr 3fr 1fr;
-        gap: 15px;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    .list-table-format .title{
-        display: none;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-table-format {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.list-table-format:hover {
+    background: rgba(0, 184, 148, 0.05);
+}
+
+.list-table-format.title {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: none;
+}
+
+.list-table-format.title:hover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.list-table-format img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.list-table-format:hover img {
+    border-color: #00b894;
+    transform: scale(1.05);
+}
+
+.list-table-format p {
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+    text-align: left;
+    position: static;
+    padding: 0;
+}
+
+.list-table-format p::after {
+    display: none;
+}
+
+.list-table-format p:nth-child(4) {
+    color: #00b894;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.list-table-format p:last-child {
+    color: #ff4757;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.list-table-format p:last-child:hover {
+    background: #ff4757;
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Empty State */
+.list-table-format:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .list-table-format {
+        grid-template-columns: 1fr 1.5fr 1fr 1fr 0.5fr;
+        padding: 18px 25px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .list {
+        margin-left: 220px;
+    }
+    
+    .list p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .list-table-format {
+        grid-template-columns: 0.8fr 1.2fr 0.8fr 0.8fr 0.5fr;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+    
+    .list-table-format img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .list {
+        margin-left: 70px;
+        padding: 20px;
+        margin-top: 70px;
+    }
+    
+    .list-table-format {
+        grid-template-columns: 0.7fr 1fr 0.7fr 0.7fr 0.5fr;
+        padding: 12px 15px;
+    }
+    
+    .list-table-format img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .list-table-format p {
+        font-size: 13px;
+    }
+    
+    .list-table-format p:last-child {
+        font-size: 16px;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .list-table {
+        overflow-x: auto;
+    }
+    
+    .list-table-format {
+        grid-template-columns: 60px 150px 100px 80px 50px;
+        min-width: 500px;
+    }
+    
+    .list-table-format.title {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .list {
+        margin-left: 60px;
+        padding: 15px;
+        margin-top: 60px;
+    }
+    
+    .list p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .list-table-format {
+        padding: 10px 12px;
+        grid-template-columns: 50px 120px 90px 70px 40px;
+        min-width: 400px;
+    }
+    
+    .list-table-format img {
+        width: 40px;
+        height: 40px;
     }
 }
